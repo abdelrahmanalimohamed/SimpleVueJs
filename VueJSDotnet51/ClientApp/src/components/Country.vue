@@ -3,7 +3,7 @@
 
     <h1>Country Data</h1>
 
-    <router-link to="/" tag="button" class="btn btn-success">Create New Country</router-link>
+    <router-link to="/InsertCountry" tag="button" class="btn btn-success">Create New Country</router-link>
 
     <br />
     <br />

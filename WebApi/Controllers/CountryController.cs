@@ -85,5 +85,23 @@ namespace WebApi.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        [Route("regions")]
+        public ActionResult GetRegions()
+        {
+            try
+            {
+                var regions = (from a in MyDBContexts.Regions
+                               select a).ToList();
+
+                return Ok(regions);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

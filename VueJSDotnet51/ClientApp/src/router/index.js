@@ -4,6 +4,8 @@ import Counter from "@/components/Counter.vue";
 import FetchData from "@/components/FetchData.vue";
 import Country from "@/components/Country.vue";
 import CountryDetails from "../components/CountryDetails.vue";
+import InsertCountry from "../components/AddCountry.vue";
+
 const routes = [
     {
         path: "/",
@@ -29,6 +31,11 @@ const routes = [
         path: "/UpdateCountry",
         name: "UpdateCountry",
         component: CountryDetails,
+    },
+    {
+        path: "/InsertCountry",
+        name: "InsertCountry",
+        component: InsertCountry,
     }
 ];
 
