@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web.Http;
 using WebApi.Database;
 using WebApi.Model;
 
@@ -126,6 +127,43 @@ namespace WebApi.Controllers
                 {
                     return Ok("Not Inserted");
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPut]
+        [Route("updatecountry/{code}")]
+
+        public ActionResult UpdateCountry (string code , Country country)
+        {
+            try
+            {
+                var existingCountry = (from a in MyDBContexts.Countries
+                                       where a.Country_id == code
+                                       select a).FirstOrDefault();
+
+                if (existingCountry != null)
+                {
+                  //  existingCountry.Country_id = country.Country_id;
+
+                    existingCountry.Country_name = country.Country_name;
+
+                    existingCountry.region_id = 3;
+
+                    MyDBContexts.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+                return Ok("Updated");
+
+
             }
             catch (Exception)
             {

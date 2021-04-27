@@ -7,7 +7,7 @@
                 <form @submit.prevent="updateCountry">
                     <div class="form-group">
                         <label>Country ID</label>
-                        <input type="text" class="form-control" v-model="country.country_id">
+                        <input type="text" class="form-control" v-model="country.country_id" disabled>
                     </div>
                     <div class="form-group">
                         <label>Country Name</label>
@@ -16,7 +16,7 @@
 
                     <div class="form-group">
                         <label>Region Name</label>
-                        <input type="text" class="form-control" v-model="country.region_name">
+                        <input type="text" class="form-control" v-model="country.region_name" disabled>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update</button>
@@ -42,13 +42,13 @@
                 });
         },
         methods: {
-            //updateCountry() {
-            //    this.axios
-            //        .patch(`http://localhost:8000/api/products/${this.$route.params.id}`, this.product)
-            //        .then((res) => {
-            //            this.$router.push({ name: 'home' });
-            //        });
-            //}
+            updateCountry() {
+                axios
+                    .put(`https://localhost:44350/api/Country/updatecountry/${this.$route.params.id}`, this.country)
+                    .then((res) => {
+                        this.$router.push({ name: 'home' });
+                    });
+            }
         }
     }
 </script>
