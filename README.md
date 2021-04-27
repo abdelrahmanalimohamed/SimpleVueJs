@@ -1,2 +1,2 @@
 # SimpleVueJs-Dummy
-Dummy Project for testing and learning purposes
+Dummy Vuejs Consuming Web Api  for testing and learning purposes
