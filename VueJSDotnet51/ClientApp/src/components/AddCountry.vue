@@ -72,7 +72,7 @@
                     .post('https://localhost:44350/api/Country/insertcountry', this.country)
                     .then(response => (
                       
-                        this.$router.push({ name: 'Home' })
+                        this.$router.push({ name: 'Country' })
                     ))
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)

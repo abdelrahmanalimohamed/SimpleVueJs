@@ -46,7 +46,7 @@
                 axios
                     .put(`https://localhost:44350/api/Country/updatecountry/${this.$route.params.id}`, this.country)
                     .then((res) => {
-                        this.$router.push({ name: 'Home' });
+                        this.$router.push({ name: 'Country' });
                     });
             }
         }
