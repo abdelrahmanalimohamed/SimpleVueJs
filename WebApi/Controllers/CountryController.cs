@@ -103,5 +103,35 @@ namespace WebApi.Controllers
                 throw;
             }
         }
+
+
+        [HttpPost]
+        [Route("insertcountry")]
+
+        public ActionResult InsertCountry([FromBody] Country country)
+        {
+            try
+            {
+                country.region_id = 3;
+
+                var insert = MyDBContexts.Countries.Add(country);
+
+                var check = MyDBContexts.SaveChanges();
+
+                if (check > 0)
+                {
+                    return Ok("Inserted");
+                }
+                else
+                {
+                    return Ok("Not Inserted");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
