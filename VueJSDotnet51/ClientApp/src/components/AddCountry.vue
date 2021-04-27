@@ -22,6 +22,21 @@
             </div>
         </div>
 
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Region Name :</label>
+            <div class="col-sm-10">
+                <select v-model="country.region_id">>
+                    <option v-for="option in countries" v-bind:value="option.region_id" >
+                        {{ option.region_name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -36,20 +51,28 @@
 <script>
     import axios from 'axios'
     export default {
-        data() {
+        data: function() {
             return {
+                countries: [],
                 country: {}
+
             }
+        },
+
+        created() {
+            axios
+                .get('https://localhost:44350/api/Country/regions')
+                .then(response => {
+                    this.countries = response.data;
+                });
         },
         methods: {
             addCountry() {
                 axios
                     .post('https://localhost:44350/api/Country/insertcountry', this.country)
                     .then(response => (
-                        this.isSuccessfully = true ,
-                     this.alertModalTitle = 'Successfully' ,
-                      this.alertModalContent = 'Successfully inserted new Country',
-                        this.$router.push({ name: 'home' })
+                      
+                        this.$router.push({ name: 'Home' })
                     ))
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)

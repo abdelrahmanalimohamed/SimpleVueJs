@@ -114,7 +114,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                country.region_id = 3;
+                //country.region_id = 3;
 
                 var insert = MyDBContexts.Countries.Add(country);
 
