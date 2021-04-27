@@ -46,6 +46,9 @@
                 axios
                     .post('https://localhost:44350/api/Country/insertcountry', this.country)
                     .then(response => (
+                        this.isSuccessfully = true ,
+                     this.alertModalTitle = 'Successfully' ,
+                      this.alertModalContent = 'Successfully inserted new Country',
                         this.$router.push({ name: 'home' })
                     ))
                     .catch(err => console.log(err))

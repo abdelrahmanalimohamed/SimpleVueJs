@@ -148,8 +148,6 @@ namespace WebApi.Controllers
 
                 if (existingCountry != null)
                 {
-                  //  existingCountry.Country_id = country.Country_id;
-
                     existingCountry.Country_name = country.Country_name;
 
                     existingCountry.region_id = 3;
