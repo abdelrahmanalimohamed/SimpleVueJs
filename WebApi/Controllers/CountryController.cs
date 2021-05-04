@@ -81,7 +81,7 @@ namespace WebApi.Controllers
                     return Ok("Not Deleted");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
